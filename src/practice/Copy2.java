@@ -1,22 +1,17 @@
-package ex11;
+package practice;
 
-// 추상클래스  클래스 앞에 abstract붙인다. new불가능
-// 애완동물은 강아지 고양이 추상화시키기 위한 목적
-// 자식들 메서드는 찾아지지만 변수는 못찾아
-// 메서드를 이용해 변수를 찾아낸다. 오버라이드를 이용하여
-abstract class 애완동물 {
-    // 오버라이드
+class 애완동물 {
     void sound() {
     }
 
-    // 무효화
     void printName() {
-        System.out.println("애완동물 printName");
-    }
-
-    void changeName(String d) {
 
     }
+
+    void chageName() {
+
+    }
+
 }
 
 class 강아지 extends 애완동물 {
@@ -26,10 +21,17 @@ class 강아지 extends 애완동물 {
     void sound() {
         System.out.println("멍멍");
     }
+
+    void printName() {
+        System.out.println(name);
+    }
+
+    void chageName() {
+        System.out.println("송아지");
+    }
 }
 
 class 고양이 extends 애완동물 {
-
     String name = "고양이";
 
     void sound() {
@@ -40,22 +42,24 @@ class 고양이 extends 애완동물 {
         System.out.println(name);
     }
 
-    void changeName(String d) {
-        name = d;
+    void chageName() {
+        System.out.println("앵무새");
     }
 }
 
-public class ExtendsEx03 {
+public class Copy2 {
 
     static void start(애완동물 u1) {
         u1.sound();
         u1.printName();
-        u1.changeName("앵무새");
+        u1.chageName();
         u1.printName();
+
     }
 
     public static void main(String[] args) {
         애완동물 cat = new 고양이();
+        강아지 dog = new 강아지();
         start(cat);
     }
 }

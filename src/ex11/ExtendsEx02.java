@@ -1,5 +1,7 @@
 package ex11;
 
+import java.util.Scanner;
+
 abstract class 동물 {
     String name;
     int hp;
@@ -95,6 +97,20 @@ public class ExtendsEx02 {
         int hp = unit2.returnHp() - unit1.returnAttack();
         unit2.changeHp(hp);
         System.out.println(unit2.returnName() + "의 hp : " + unit2.returnHp());
+        System.out.println("=========================================================");
+    }
+
+    static void heal(동물 unit1) {
+        Scanner healHp = new Scanner(System.in);
+        System.out.println("=========================================================");
+        System.out.println("치료 할 hp를 입력하세요");
+        int heal = healHp.nextInt();
+        System.out.println("=========================================================");
+        System.out.println(unit1.returnName() + "가 치료되었습니다.");
+        int hp = unit1.returnHp() + heal;
+        unit1.changeHp(hp);
+        System.out.println(unit1.returnName() + "의 hp : " + unit1.returnHp());
+        System.out.println("=========================================================");
     }
 
     public static void main(String[] args) {
@@ -111,5 +127,15 @@ public class ExtendsEx02 {
         // 곰이 사자 공격
         attack(bear, lion);
         attack(bear, lion);
+        System.out.println("치료 할 동물번호를 입력하세요 1.사자 / 2.호랑이 / 3.곰");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        if (choice == 1) {
+            heal(lion);
+        } else if (choice == 2) {
+            heal(tiger);
+        } else if (choice == 3) {
+            heal(bear);
+        }
     }
 }

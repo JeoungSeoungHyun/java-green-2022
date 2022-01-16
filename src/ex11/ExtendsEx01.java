@@ -7,9 +7,6 @@ class 라면 {
 }
 
 class 매운라면 extends 라면 {
-    // int kcal = 300;
-    // String color = "노란색" ;
-    // String type = "국물";
     String type2 = "고춧가루";
 }
 
