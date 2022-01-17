@@ -1,26 +1,20 @@
 package ex11;
 
-import java.util.Scanner;
-
 abstract class 동물 {
-    String name;
-    int hp;
-    int attack;
-
-    int returnHp() {
-        return hp;
+    String getName() {
+        return "";
     }
 
-    int returnAttack() {
-        return attack;
+    void setHp(int hp) {
+
     }
 
-    String returnName() {
-        return name;
+    int getHp() {
+        return 0;
     }
 
-    void changeHp(int replace) {
-        hp = replace;
+    int getAttack() {
+        return 0;
     }
 }
 
@@ -29,20 +23,20 @@ class 사자 extends 동물 {
     int hp = 100;
     int attack = 10;
 
-    int returnHp() {
-        return hp;
-    }
-
-    int returnAttack() {
-        return attack;
-    }
-
-    String returnName() {
+    String getName() {
         return name;
     }
 
-    void changeHp(int replace) {
-        hp = replace;
+    void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    int getHp() {
+        return hp;
+    }
+
+    int getAttack() {
+        return attack;
     }
 }
 
@@ -51,20 +45,20 @@ class 호랑이 extends 동물 {
     int hp = 100;
     int attack = 15;
 
-    int returnHp() {
-        return hp;
-    }
-
-    int returnAttack() {
-        return attack;
-    }
-
-    String returnName() {
+    String getName() {
         return name;
     }
 
-    void changeHp(int replace) {
-        hp = replace;
+    void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    int getHp() {
+        return hp;
+    }
+
+    int getAttack() {
+        return attack;
     }
 }
 
@@ -73,69 +67,61 @@ class 곰 extends 동물 {
     int hp = 100;
     int attack = 50;
 
-    int returnHp() {
-        return hp;
-    }
-
-    int returnAttack() {
-        return attack;
-    }
-
-    String returnName() {
+    String getName() {
         return name;
     }
 
-    void changeHp(int replace) {
-        hp = replace;
+    void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    int getHp() {
+        return hp;
+    }
+
+    int getAttack() {
+        return attack;
+    }
+}
+
+class 늑대 extends 동물 {
+    String name = "늑대";
+    int hp = 100;
+    int attack = 7;
+
+    String getName() {
+        return name;
+    }
+
+    void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    int getHp() {
+        return hp;
+    }
+
+    int getAttack() {
+        return attack;
     }
 }
 
 public class ExtendsEx02 {
 
     static void attack(동물 unit1, 동물 unit2) {
-        System.out.println(unit2.returnName() + "가 " + unit1.returnName() + "에게 공격당하고 있습니다.");
-        int hp = unit2.returnHp() - unit1.returnAttack();
-        unit2.changeHp(hp);
-        System.out.println(unit2.returnName() + "의 hp : " + unit2.returnHp());
-        System.out.println("=========================================================");
-    }
-
-    static void heal(동물 unit1) {
-        Scanner healHp = new Scanner(System.in);
-        System.out.println("=========================================================");
-        System.out.println("치료 할 hp를 입력하세요");
-        int heal = healHp.nextInt();
-        System.out.println("=========================================================");
-        System.out.println(unit1.returnName() + "가 치료되었습니다.");
-        int hp = unit1.returnHp() + heal;
-        unit1.changeHp(hp);
-        System.out.println(unit1.returnName() + "의 hp : " + unit1.returnHp());
-        System.out.println("=========================================================");
+        System.out.println(unit1.getName() + "이(가) " + unit2.getName() + "을(를) 공격하고 있습니다.");
+        unit2.setHp(unit2.getHp() - unit1.getAttack());
+        System.out.println(unit2.getName() + "의 hp : " + unit2.getHp());
     }
 
     public static void main(String[] args) {
         동물 lion = new 사자();
         동물 tiger = new 호랑이();
         동물 bear = new 곰();
+        동물 wolf = new 늑대();
 
-        // 사자가 호랑이 공격
         attack(lion, tiger);
-        // 곰이 호랑이 공격
-        attack(bear, tiger);
-        // 사자가 곰 공격
         attack(lion, bear);
-        // 곰이 사자 공격
-        attack(bear, lion);
-        attack(bear, lion);
-        System.out.println("치료 할 동물번호를 입력하세요 1.사자 / 2.호랑이 / 3.곰");
-        Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
-        if (choice == 1) {
-            heal(lion);
-        } else if (choice == 2) {
-            heal(tiger);
-        } else if (choice == 3) {
-            heal(bear);
-        }
+        attack(wolf, lion);
     }
 }

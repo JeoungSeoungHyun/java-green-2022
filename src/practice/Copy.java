@@ -17,6 +17,10 @@ class 동물 {
         return attack;
     }
 
+    void changeHp(int a) {
+
+    }
+
 }
 
 class 사자 extends 동물 {
@@ -37,6 +41,10 @@ class 사자 extends 동물 {
         return attack;
     }
 
+    void changeHp(int a) {
+        hp = a;
+    }
+
 }
 
 class 호랑이 extends 동물 {
@@ -54,6 +62,10 @@ class 호랑이 extends 동물 {
 
     int attack() {
         return attack;
+    }
+
+    void changeHp(int a) {
+        hp = a;
     }
 }
 
@@ -74,6 +86,10 @@ class 곰 extends 동물 {
         return attack;
     }
 
+    void changeHp(int a) {
+        hp = a;
+    }
+
 }
 
 public class Copy {
@@ -82,12 +98,12 @@ public class Copy {
 
     static void attack(동물 u1, 동물 u2) {
         u2.name();
-        u2.hp();
-        u1.attack();
 
+        int hp;
         System.out.println(u2.name() + "가 공격당하고 있습니다.");
-        int hp = u2.hp() - u1.attack();
-        System.out.println(u2.name() + "의 hp : " + hp);
+        hp = u2.hp() - u1.attack();
+        u2.changeHp(hp);
+        System.out.println(u2.name() + "의 hp : " + u2.hp());
     }
 
     public static void main(String[] args) {
@@ -96,8 +112,7 @@ public class Copy {
         동물 곰 = new 곰();
 
         attack(사자, 호랑이);
-        attack(사자, 곰);
+        attack(사자, 호랑이);
 
     }
-
 }

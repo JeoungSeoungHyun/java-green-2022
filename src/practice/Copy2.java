@@ -8,7 +8,7 @@ class 애완동물 {
 
     }
 
-    void chageName() {
+    void chageName(String 앵무새) {
 
     }
 
@@ -42,8 +42,9 @@ class 고양이 extends 애완동물 {
         System.out.println(name);
     }
 
-    void chageName() {
-        System.out.println("앵무새");
+    void chageName(String 앵무새) {
+        name = 앵무새;
+        System.out.println(name);
     }
 }
 
@@ -52,8 +53,7 @@ public class Copy2 {
     static void start(애완동물 u1) {
         u1.sound();
         u1.printName();
-        u1.chageName();
-        u1.printName();
+        u1.chageName("참치");
 
     }
 
