@@ -1,26 +1,12 @@
 package practice;
 
-class Add {
-
-    void add1(int a, int b) {
-        int c;
-
-        c = a + b;
-    }
-
-    int add2(int a, int b) {
-        int c;
-
-        c = a + b;
-
-        return c;
-    }
-
-}
-
 public class Practice {
     public static void main(String[] args) {
-        Add a = new Add();
+        String s1 = "안녕";
+        String s2 = new String("안녕");
 
+        s2 = "Hello";
+        s1 = "Hello";
+        s1 = s1 + "World";
     }
 }
