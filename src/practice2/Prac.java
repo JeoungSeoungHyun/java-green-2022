@@ -1,4 +1,4 @@
-package ex22;
+package practice2;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,6 +8,26 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
+
+import javax.xml.crypto.Data;
+
+class Array {
+    private Dataes data;
+    private List<Dataes> Array = new ArrayList<>();
+
+    public Array(Dataes data) {
+        this.data = data;
+    }
+
+    public Dataes getData() {
+        return data;
+    }
+
+    public List<Dataes> getArray() {
+        return Array;
+    }
+
+}
 
 class Dataes {
     private Set<Integer> dataes;
@@ -22,13 +42,14 @@ class Dataes {
 
 }
 
-public class CollectionEx05 {
+public class Prac {
     public static void main(String[] args) {
         Random num = new Random();
         List<Set<Integer>> dataesArray = new ArrayList<>();
         List<Integer> winArray = new ArrayList<>();
         List<Integer> compareArray = new ArrayList<>();
         int count = 0;
+
         // 당첨 번호를 무작위로 ArrayList에 담는다
         while (winArray.size() != 6) {
             int n = num.nextInt(45) + 1;
@@ -37,16 +58,14 @@ public class CollectionEx05 {
                 for (int j = 0; j < i; j++) {
                     if (winArray.get(i) == winArray.get(j)) {
                         winArray.remove(i);
-                        i = 0; // i=0으로 바꿔주지 않으면 i의 값과 winArray의 사이즈가 같아져서 IndexOutOfBoundsException 오류가 발생하게
-                               // 된다.
-                    } // 0인 이유는 더 이상 비교 할 필요가 없기 때문에 for문을 끝내기 위해서
+                        i = 0;
+                    }
                 }
             }
         }
-
         System.out.println("당첨 번호 : " + winArray); // 당첨 번호 확인
 
-        // 스캔으로 금액을 입력받는다. 1000원에 하나
+        // 스캔으로 금액을 입력받는다.
         Scanner sc = new Scanner(System.in);
         int money = sc.nextInt();
 
@@ -58,9 +77,11 @@ public class CollectionEx05 {
                 dataes.add(n);
             }
 
+            // 이게 클래스를 담는건가? for문이 반복되면 garbage collection되서 의미가 있나?
+            Dataes data = new Dataes(dataes);
+
         }
-        // 구입한 복권 번호 확인
-        System.out.println("구입한 복권 번호 : " + dataesArray);
+        System.out.println("구입한 복권 번호 : " + dataesArray); // 구입한 복권 번호 확인
 
         // 당첨 번호 정렬 확인
         Collections.sort(winArray);
@@ -72,26 +93,29 @@ public class CollectionEx05 {
             while (its.hasNext()) {
                 compareArray.add(its.next());
             }
+            // System.out.println("구입한 복권 하나 확인 : " + compareArray);
 
-            // 구입한 복권 하나 정렬 확인
             Collections.sort(compareArray);
             // System.out.println("구입한 복권 하나 정렬 확인 : " + compareArray);
 
-            // 당첨인지 확인
+            // 당첨복권과 비교하여 맞은 개수 확인
             for (int j = 0; j < compareArray.size(); j++) {
-                if (compareArray.get(j) == winArray.get(j)) {
-                    count++;
+                for (int k = 0; k < winArray.size(); k++) {
+                    if (compareArray.get(j) == winArray.get(k)) {
+                        count++;
+                    }
                 }
             }
+            // System.out.println("복권 맞은 개수" + count); // 복권 맞은 번호 개수
 
             // 결과 발표
             if (count == 6) {
                 System.out.println("당첨입니다~! 부럽다..");
             } else {
-                System.out.println("다음 기회에....");
+                System.out.println("복권 맞은 개수 : " + count + "개" + " 다음 기회에....");
             }
-            compareArray.clear();
             count = 0;
+            compareArray.clear();
         }
     }
 }
