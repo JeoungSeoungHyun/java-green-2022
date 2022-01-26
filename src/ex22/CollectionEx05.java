@@ -9,19 +9,6 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
-class Dataes {
-    private Set<Integer> dataes;
-
-    Dataes(Set<Integer> dataes) {
-        this.dataes = dataes;
-    }
-
-    public Set<Integer> getDataes() {
-        return dataes;
-    }
-
-}
-
 public class CollectionEx05 {
     public static void main(String[] args) {
         Random num = new Random();
@@ -57,11 +44,11 @@ public class CollectionEx05 {
                 int n = num.nextInt(45) + 1;
                 dataes.add(n);
             }
-
+            dataesArray.add(dataes);
+            // 구입한 복권 번호 확인
         }
-        // 구입한 복권 번호 확인
-        System.out.println("구입한 복권 번호 : " + dataesArray);
 
+        System.out.println("구입한 복권 번호 : " + dataesArray);
         // 당첨 번호 정렬 확인
         Collections.sort(winArray);
         System.out.println("당첨번호정렬 : " + winArray);
