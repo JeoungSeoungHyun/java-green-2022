@@ -1,4 +1,4 @@
-package cafe.cafeclass;
+package cafe;
 
 abstract public class Barista {
 
@@ -9,4 +9,5 @@ abstract public class Barista {
 
     abstract public String getName();
 
+    abstract public void setName(String name);
 }

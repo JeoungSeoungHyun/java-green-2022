@@ -7,29 +7,32 @@ public class MainApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // 날짜 입력 받기
-        System.out.println("=============================================");
+        System.out.println("=================================================================");
         System.out.println("※ 미래의 날씨는 예측 할 수 없습니다!");
-        System.out.println("=============================================");
-        System.out.println("==========원하는 날짜를 입력하세요.==========");
+        System.out.println("===================원하는 날짜를 입력하세요.=====================");
         System.out.println(" ex) 20220126");
         String date = sc.nextLine();
+        String year = date.substring(0, 4);
+        String month = date.substring(4, 6);
+        String day = date.substring(6);
 
         // 시간 입력 받기
         if (date.length() == 8) {
-            System.out.println("=============================================");
-            System.out.println("=============================================");
+            System.out.println("=================================================================");
             System.out.println("※ 매시간 30분에 생성되고 10분마다 최신 정보로 업데이트됩니다.");
             System.out.println(" ex) 0600 -> 0630 생성");
-            System.out.println("=============원하는 시간을 입력하세요.=======");
+            System.out.println("====================원하는 시간을 입력하세요.====================");
             System.out.println(" ex ) 0600");
             String time = sc.nextLine();
+            String hour = time.substring(0, 2);
+            String minute = time.substring(2);
 
             // 카테고리 입력 받기
             if (time.length() == 4) {
-                System.out.println("=============================================");
-                System.out.println("========원하는 정보를 입력하세요.============");
+                System.out.println("===================원하는 정보를 입력하세요.=====================");
                 System.out.println("ex) T1H , RN1 , REH , WSD , END ");
                 System.out.println("(T1H:기온 , RN1:1시간 강수량, REH:습도, WSD:풍속, END:종료) ");
+                System.out.println("=================================================================");
 
                 int exit = 1;
                 while (exit != 0) {
@@ -42,23 +45,26 @@ public class MainApp {
 
                         // 원하는 category에 따라 알맞게 출력하여 준다.
                         final Double INFO = weatherList.get(category);
-                        System.out.println("============================");
+                        String sentence = "부산진구의 " + year + "년 " + month + "월 " + day + "일 " + hour + "시 " + minute;
+                        System.out.println("=================================================================");
                         if (category.equals("T1H")) {
-                            System.out.println("부산진구의 기온은 " + INFO + "℃ 입니다.");
+                            System.out.println(sentence + "분 기온은 " + INFO + "℃ 입니다.");
                         } else if (category.equals("RN1")) {
-                            System.out.println("부산진구의 1시간 강수량은 " + INFO + "mm 입니다.");
+                            System.out.println(sentence + "분 강수량은 " + INFO + "mm 입니다.");
                         } else if (category.equals("REH")) {
-                            System.out.println("부산진구의 습도는 " + INFO + "% 입니다.");
+                            System.out.println(sentence + "분 습도는 " + INFO + "% 입니다.");
                         } else if (category.equals("WSD")) {
-                            System.out.println("부산진구의 풍속은" + INFO + "m/s 입니다.");
+                            System.out.println(sentence + "분 풍속은 " + INFO + "m/s 입니다.");
                         } else if (category.equals("END")) {
                             exit = 0;
                         }
-                        System.out.println("============================");
+                        System.out.println("=================================================================");
                     } else {
                         System.out.println("없는 정보입니다.");
+                        System.out.println("=================================================================");
                     }
                 }
+                sc.close();
             } else {
                 System.out.println("시간이 잘못되었습니다.");
             }

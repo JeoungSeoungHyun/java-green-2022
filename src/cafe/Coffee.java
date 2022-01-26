@@ -1,4 +1,4 @@
-package cafe.cafeclass;
+package cafe;
 
 public class Coffee {
     private String name;

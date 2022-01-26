@@ -1,4 +1,4 @@
-package cafe.cafeclass;
+package cafe;
 
 import java.util.List;
 
@@ -16,5 +16,13 @@ public class Menu {
             }
         }
         return null;
+    }
+
+    public List<MenuItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<MenuItem> items) {
+        this.items = items;
     }
 }

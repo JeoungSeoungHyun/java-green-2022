@@ -1,12 +1,13 @@
-package cafe.cafeclass;
+package cafe;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class CafeApp {
     public static void main(String[] args) {
-        Barista barista = new Employee1("공유");
-        Customer customer = new Employee2("홍길동");
+        // 생성자를 통한 객체의 초기화와
+        Barista barista = new Employee("공유");
+        Customer customer = new Visitor("홍길동");
 
         List<MenuItem> menuItem = Arrays.asList(
                 new MenuItem("아메리카노", 1500),
@@ -19,5 +20,6 @@ public class CafeApp {
         customer.order("카푸치노", menu, barista);
         customer.order("바닐라라떼", menu, barista);
         customer.order("에스프레소", menu, barista);
+        customer.order("딸기스무디", menu, barista);
     }
 }

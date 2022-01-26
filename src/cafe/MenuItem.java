@@ -1,4 +1,4 @@
-package cafe.cafeclass;
+package cafe;
 
 public class MenuItem {
     private String name;
@@ -15,6 +15,14 @@ public class MenuItem {
 
     public int getPrice() {
         return price;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
 }
