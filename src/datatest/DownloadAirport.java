@@ -17,7 +17,7 @@ public class DownloadAirport {
         try {
             // 바이트스트림 연결
             URL url = new URL(
-                    "http://openapi.tago.go.kr/openapi/service/DmstcFlightNvgInfoService/getArprtList?serviceKey=wJmmW29e3AEUjwLioQR22CpmqS645ep4S8TSlqtSbEsxvnkZFoNe7YG1weEWQHYZ229eNLidnI2Yt5EZ3Stv7g%3D%3D&_type=json");
+                    "http://openapi.tago.go.kr/openapi/service/DmstcFlightNvgInfoService/getArprtList?serviceKey=LIqv%2F8heOoyddG4p%2FF8IZOXKJ5BKYBrTStXTKwrDT4%2BIB1fxJFKf8vPU4CUdID94Ctqlk3a6MMNlwAKC%2BASMHA%3D%3D&_type=json");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             // 버퍼드리더로 담기
             BufferedReader br = new BufferedReader(
