@@ -5,7 +5,6 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@AllArgsConstructor
 @Data
 public class Dto<T> {
     private Response response; // 변수명 꼭 동일하게
@@ -37,25 +36,5 @@ public class Dto<T> {
                 private List<T> item;
             }
         }
-    }
-
-    @AllArgsConstructor
-    @Data
-    class ItemResponse {
-        private String airlineNm;
-        private String arrAirportNm;
-        private String arrPlandTime;
-        private String depAirportNm;
-        private String depPlandTime;
-        private int economyCharge;
-        private int prestigeCharge;
-        private String vihicleId;
-    }
-
-    @AllArgsConstructor
-    @Data
-    class ItemAirport {
-        private String airportId;
-        private String airportNm;
     }
 }

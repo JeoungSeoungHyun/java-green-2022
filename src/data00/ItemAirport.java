@@ -1,12 +1,13 @@
-package datatest;
+package data00;
 
-import datatest.AirportDto.Response.Body.Items;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class AirportItem {
+class ItemAirport {
+
     private String airportId;
     private String airportNm;
+
 }

@@ -25,13 +25,17 @@ public class DownloadAirport {
             String responseJson = br.readLine();
             // Gson을 통해 오브젝트로 변경
             Gson gson = new Gson();
-            AirportDto dto = gson.fromJson(responseJson, AirportDto.class);
+            ResponseDto<AirportItem> dto = gson.fromJson(responseJson, ResponseDto.class);
+            System.out.println(dto.getResponse().getBody().getItems().getItem());
             List<AirportItem> result = dto.getResponse().getBody().getItems().getItem();
-
+            // System.out.println("DownloadAirport" + dto);
             for (int i = 0; i < result.size(); i++) {
                 airportMap.put(result.get(i).getAirportNm(), result.get(i).getAirportId());
             }
+            System.out.println("에어포트다운은 무사히 된다.");
         } catch (Exception e) {
+            e.getMessage();
+            e.printStackTrace();
             System.out.println("공항목록 조회중오류가 발생했습니다.");
         }
         return airportMap;

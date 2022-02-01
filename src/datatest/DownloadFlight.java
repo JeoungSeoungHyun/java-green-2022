@@ -36,10 +36,13 @@ public class DownloadFlight {
             String responseJson = br.readLine();
             Gson gson = new Gson();
 
-            FlightDto dto = gson.fromJson(responseJson, FlightDto.class);
+            ResponseDto<FlightItem> dto = gson.fromJson(responseJson, ResponseDto.class);
+            System.out.println("DownloadFlight" + dto);
             List<FlightItem> result = dto.getResponse().getBody().getItems().getItem();
             return result;
         } catch (Exception e) {
+            e.getMessage();
+            e.printStackTrace();
             System.out.println("항공편 조회중 오류가 발생했습니다.");
         }
         return null;

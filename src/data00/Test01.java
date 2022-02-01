@@ -7,14 +7,11 @@ import java.net.URL;
 
 import com.google.gson.Gson;
 
-import data00.Dto.ItemAirport;
-import data00.Dto.ItemResponse;
-
 public class Test01 {
     public static void main(String[] args) {
         try {
             URL url = new URL(
-                    "URL자리");
+                    "http://openapi.tago.go.kr/openapi/service/DmstcFlightNvgInfoService/getFlightOpratInfoList?serviceKey=LIqv%2F8heOoyddG4p%2FF8IZOXKJ5BKYBrTStXTKwrDT4%2BIB1fxJFKf8vPU4CUdID94Ctqlk3a6MMNlwAKC%2BASMHA%3D%3D&numOfRows=10&pageNo=1&depAirportId=NAARKSS&arrAirportId=NAARKPC&depPlandTime=20220129&airlineId=AAR&_type=json");
 
             // 변수 conn -> Byte Stream 선!!
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -27,7 +24,8 @@ public class Test01 {
 
             String responseJson = br.readLine();
             Gson gson = new Gson();
-            ResponseDto dto = gson.fromJson(responseJson, ResponseDto.class);
+
+            Dto<ItemResponse> dto = gson.fromJson(responseJson, Dto.class);
             // List<Item> result = dto.getResponse().getBody().getItems().getItem();
             System.out.println(dto.getResponse().getBody().getItems().getItem());
             // System.out.println(dto);
