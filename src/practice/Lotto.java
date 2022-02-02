@@ -45,6 +45,7 @@ public class Lotto {
         System.out.println("당첨 번호 : " + winArray); // 당첨 번호 확인
 
         // 스캔으로 금액을 입력받는다.
+        System.out.println("금액을 입력하세요 ex)5000");
         Scanner sc = new Scanner(System.in);
         int money = sc.nextInt();
 
