@@ -31,17 +31,12 @@ public class Dto<T> {
             private int pageNo;
             private int totalCount;
 
-            @Data
-            class Items {
-                private List<T> item;
+        }
 
-                public Items(List<T> item) {
-                    this.item = item;
-                }
-
-                public Items() {
-                }
-            }
+        @AllArgsConstructor
+        @Data
+        class Items {
+            private List<T> item;
         }
     }
 }

@@ -25,7 +25,7 @@ public class Test01 {
             String responseJson = br.readLine();
             Gson gson = new Gson();
 
-            Dto<ItemResponse> dto = gson.fromJson(responseJson, Dto.class);
+            Dto<?> dto = gson.fromJson(responseJson, Dto.class);
             // List<Item> result = dto.getResponse().getBody().getItems().getItem();
             System.out.println(dto.getResponse().getBody().getItems().getItem());
             // System.out.println(dto);
